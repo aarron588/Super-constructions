@@ -236,8 +236,8 @@ def projects(request):
     try:
         start_date = _parse_date(payload["start_date"], "start_date")
         end_date = _parse_date(payload["end_date"], "end_date") if payload.get("end_date") else None
-    except ValueError as error:
-        return json_error(str(error))
+    except ValueError:
+        return json_error("Invalid start_date/end_date format, use YYYY-MM-DD")
 
     project = Project.objects.create(
         name=payload["name"],
@@ -278,8 +278,8 @@ def expenses(request):
         return json_error("project_id, amount, category, incurred_on are required")
     try:
         incurred_on = _parse_date(payload["incurred_on"], "incurred_on")
-    except ValueError as error:
-        return json_error(str(error))
+    except ValueError:
+        return json_error("Invalid incurred_on format, use YYYY-MM-DD")
     expense = Expense.objects.create(
         project_id=payload["project_id"],
         amount=decimal_from_payload(payload["amount"]),
@@ -483,8 +483,8 @@ def invoices(request):
 
     try:
         due_date = _parse_date(payload["due_date"], "due_date")
-    except ValueError as error:
-        return json_error(str(error))
+    except ValueError:
+        return json_error("Invalid due_date format, use YYYY-MM-DD")
 
     is_estimate = bool(payload.get("is_estimate", False))
     invoice = Invoice.objects.create(
@@ -518,8 +518,8 @@ def invoice_generate_from_attendance(request):
     try:
         start_date = _parse_date(payload["start_date"], "start_date")
         end_date = _parse_date(payload["end_date"], "end_date")
-    except ValueError as error:
-        return json_error(str(error))
+    except ValueError:
+        return json_error("Invalid start_date/end_date format, use YYYY-MM-DD")
 
     due_date = date.today() + timedelta(days=int(payload["due_days"]))
     is_estimate = bool(payload.get("is_estimate", False))
@@ -734,8 +734,8 @@ def reports_summary(request):
     try:
         start_date = _parse_date(request.GET.get("start_date"), "start_date") if request.GET.get("start_date") else None
         end_date = _parse_date(request.GET.get("end_date"), "end_date") if request.GET.get("end_date") else None
-    except ValueError as error:
-        return json_error(str(error))
+    except ValueError:
+        return json_error("Invalid report date range, use YYYY-MM-DD")
 
     attendance_qs = AttendanceRecord.objects.filter(status=AttendanceRecord.STATUS_APPROVED, check_out__isnull=False)
     expense_qs = Expense.objects.all()
