@@ -1,0 +1,67 @@
+[
+  {
+    "id": "CUS-001",
+    "name": "Arun Sharma",
+    "contact": "+91 98765 43210",
+    "email": "arun.sharma@example.com",
+    "company": "Sharma Constructions",
+    "gst": "29ABCDE1234F1Z5",
+    "address": "Whitefield, Bengaluru, Karnataka",
+    "projects": 2,
+    "paid": "\u20b95.25L",
+    "balance": "\u20b91.75L",
+    "status": "Active"
+  },
+  {
+    "id": "CUS-002",
+    "name": "Priya Mehta",
+    "contact": "+91 98450 12345",
+    "email": "priya.mehta@example.com",
+    "company": "Mehta & Partners",
+    "gst": "29FGHIJ5678K2Z1",
+    "address": "Mysuru Road, Mysuru, Karnataka",
+    "projects": 1,
+    "paid": "\u20b98.40L",
+    "balance": "\u20b93.60L",
+    "status": "Active"
+  },
+  {
+    "id": "CUS-003",
+    "name": "Rahul Reddy",
+    "contact": "+91 99012 34567",
+    "email": "rahul.reddy@example.com",
+    "company": "Reddy Ventures",
+    "gst": "29LMNOP9012Q3Z8",
+    "address": "Sarjapur Road, Bengaluru, Karnataka",
+    "projects": 1,
+    "paid": "\u20b93.10L",
+    "balance": "\u20b90",
+    "status": "Active"
+  },
+  {
+    "id": "CUS-004",
+    "name": "Sneha Rao",
+    "contact": "+91 97420 67890",
+    "email": "sneha.rao@example.com",
+    "company": "Rao Interiors",
+    "gst": "",
+    "address": "Indiranagar, Bengaluru, Karnataka",
+    "projects": 0,
+    "paid": "\u20b90",
+    "balance": "\u20b90",
+    "status": "Inactive"
+  },
+  {
+    "name": "Aaron Gonsalves",
+    "contact": "959565959",
+    "email": "aarongons127@gmail.com",
+    "company": "qwqw",
+    "gst": "qqwqwq",
+    "status": "Active",
+    "address": "qwqwqw",
+    "id": "CUS-005",
+    "projects": 0,
+    "paid": "\u20b90",
+    "balance": "\u20b90"
+  }
+]

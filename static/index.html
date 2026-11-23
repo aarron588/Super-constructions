@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Dashboard | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/><path d="M11 13h10M16 9v8"/></svg>
+        </span>
+        <span class="brand-name">SUPER<span>CONSTRUCTION</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link active" href="/" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/customers"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1.5a6 6 0 0 1 12 0V20M16 5.2a3.5 3.5 0 0 1 0 6.7M18 14a5 5 0 0 1 3 4.5V20"/></svg><span>Customers</span></a>
+        <button class="nav-link future-link" type="button" data-module="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Estimates &amp; Quotations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Invoices &amp; Billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6m-6 4h6m-6 4h3"/></svg><span>Invoices &amp; billing</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Materials &amp; Stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18m-13 5h4"/></svg><span>Expenses</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"/><path d="M7 7V5a2 2 0 0 1 2-2h10"/></svg><span>Payments</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Reports &amp; Analytics"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17"/><path d="m7 15 4-5 3 2 5-7"/></svg><span>Reports &amp; analytics</span><span class="soon">SOON</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link future-link" type="button" data-module="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.6.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.6-.9l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.9l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.6-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.6.9l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1-.1 1.8Z"/></svg><span>Settings</span><span class="soon">SOON</span></button>
+        <div class="help-card">
+          <div class="help-icon">?</div>
+          <div><strong>Need a hand?</strong><span>We're here to help you.</span></div>
+          <a href="mailto:support@superconstruction.example" aria-label="Email support">→</a>
+        </div>
+        <div class="profile">
+          <div class="avatar">AD</div>
+          <div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div>
+          <button class="profile-menu" aria-label="Account options" type="button">···</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumbs">Workspace <span>/</span> <strong>Dashboard</strong></div>
+        <div class="topbar-actions">
+          <div class="demo-badge"><span></span> DEMO DATA</div>
+          <button class="icon-button notification-button" aria-label="Notifications" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg>
+            <i></i>
+          </button>
+          <div class="top-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow">MONDAY, 23 NOVEMBER 2026</p>
+            <h1>Good morning, Admin <span aria-hidden="true">✦</span></h1>
+            <p class="welcome-subtitle">Here's what's happening across your business today.</p>
+          </div>
+          <button class="date-filter" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+            This month <span class="chevron">⌄</span>
+          </button>
+        </section>
+
+        <section class="metrics-grid" id="metrics" aria-label="Business overview">
+          <div class="loading-card">Loading business overview…</div>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel projects-panel">
+            <div class="panel-heading">
+              <div><h2>Project overview</h2><p>Your active projects at a glance</p></div>
+              <button class="text-button" type="button" data-module="Projects">View all <span>→</span></button>
+            </div>
+            <div class="project-list" id="projects"><div class="loading-row">Loading projects…</div></div>
+          </article>
+          <article class="panel activity-panel">
+            <div class="panel-heading">
+              <div><h2>Recent activity</h2><p>Latest updates from your business</p></div>
+              <button class="more-button" aria-label="More activity options" type="button">···</button>
+            </div>
+            <div class="activity-list" id="activities"><div class="loading-row">Loading activity…</div></div>
+          </article>
+        </section>
+        <footer class="page-footer"><span>© 2026 Super Construction</span><span>Management made simple.</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
