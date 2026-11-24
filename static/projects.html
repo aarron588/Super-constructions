@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Projects | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/projects.js?v=20261124-2145" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/><path d="M11 13h10M16 9v8"/></svg></span>
+        <span class="brand-name">SUPER<span>CONSTRUCTION</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg><span>Dashboard</span></a>
+        <div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link active" href="/projects" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span></a>
+        <button class="nav-link future-link" type="button" data-module="Estimates &amp; Quotations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7V5a2 2 0 0 1 2-2Z"/></svg><span>Estimates</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Invoices &amp; Billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/></svg><span>Invoices &amp; billing</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Materials &amp; Stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/></svg><span>Materials &amp; stock</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/></svg><span>Expenses</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18"/></svg><span>Payments</span><span class="soon">SOON</span></button>
+        <button class="nav-link future-link" type="button" data-module="Reports &amp; Analytics"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17m-14-5 4-5 3 2 5-7"/></svg><span>Reports &amp; analytics</span><span class="soon">SOON</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link future-link" type="button" data-module="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/></svg><span>Settings</span><span class="soon">SOON</span></button>
+        <div class="help-card"><div class="help-icon">?</div><div><strong>Need a hand?</strong><span>We're here to help you.</span></div><a href="mailto:support@superconstruction.example">→</a></div>
+        <div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div><button class="profile-menu" aria-label="Account options" type="button">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumbs">Workspace <span>/</span> <strong>Projects</strong></div>
+        <div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><button class="icon-button notification-button" aria-label="Notifications" type="button"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><div class="top-avatar">AD</div></div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row customer-heading">
+          <div><p class="eyebrow">PROJECT REGISTER</p><h1>Projects</h1><p class="welcome-subtitle">Create and track construction projects in one place.</p></div>
+          <button class="primary-button" id="add-project" type="button"><span>＋</span> Add project</button>
+        </section>
+
+        <section class="project-summary" aria-label="Project overview">
+          <article><span>Total projects</span><strong id="total-projects">0</strong></article>
+          <article><span>In progress</span><strong id="in-progress-projects">0</strong></article>
+          <article><span>On hold</span><strong id="on-hold-projects">0</strong></article>
+          <article><span>Completed</span><strong id="completed-projects">0</strong></article>
+        </section>
+
+        <section class="panel customer-panel">
+          <div class="customer-toolbar">
+            <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="project-search" type="search" placeholder="Search project, location or supervisor"></label>
+            <select id="project-status-filter" aria-label="Filter projects by status"><option value="All">All statuses</option><option>Planning</option><option>In progress</option><option>On hold</option><option>Completed</option></select>
+          </div>
+          <div class="customer-table-wrap">
+            <table class="customer-table project-table">
+              <thead><tr><th>Project</th><th>Location</th><th>Schedule</th><th>Contract / budget</th><th>Progress</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead>
+              <tbody id="project-rows"><tr><td colspan="7" class="table-loading">Loading projects…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="project-modal" aria-hidden="true">
+    <div class="modal project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">PROJECT DETAILS</p><h2 id="project-modal-title">Add project</h2></div><button class="modal-close" id="project-modal-close" type="button" aria-label="Close">×</button></div>
+      <form id="project-form">
+        <input type="hidden" id="project-id">
+        <div class="form-grid">
+          <label>Project name *<input id="project-name" required placeholder="e.g. Sharma Residence"></label>
+          <label>Project location *<input id="project-location" required placeholder="Area, city"></label>
+          <label>Assigned supervisor<input id="project-supervisor" placeholder="Supervisor name"></label>
+          <label>Start date *<input id="project-start-date" type="date" required></label>
+          <label>Expected completion *<input id="project-end-date" type="date" required></label>
+          <label>Project budget (₹)<input id="project-budget" type="number" min="0" step="1000" value="0"></label>
+          <label>Contract amount (₹)<input id="project-contract" type="number" min="0" step="1000" value="0"></label>
+          <label>Status<select id="project-status"><option>Planning</option><option>In progress</option><option>On hold</option><option>Completed</option></select></label>
+          <label>Progress (%)<input id="project-progress" type="number" min="0" max="100" step="1" value="0"></label>
+        </div>
+        <p class="form-error" id="project-form-error" role="alert"></p>
+        <div class="modal-actions"><button class="secondary-button" id="project-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save project</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

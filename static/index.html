@@ -24,8 +24,7 @@
           <span>Dashboard</span>
         </a>
         <div class="nav-section-label">MANAGEMENT</div>
-        <a class="nav-link" href="/customers"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1.5a6 6 0 0 1 12 0V20M16 5.2a3.5 3.5 0 0 1 0 6.7M18 14a5 5 0 0 1 3 4.5V20"/></svg><span>Customers</span></a>
-        <button class="nav-link future-link" type="button" data-module="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span><span class="soon">SOON</span></button>
+        <a class="nav-link" href="/projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span></a>
         <button class="nav-link future-link" type="button" data-module="Estimates &amp; Quotations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates</span><span class="soon">SOON</span></button>
         <button class="nav-link future-link" type="button" data-module="Invoices &amp; Billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6m-6 4h6m-6 4h3"/></svg><span>Invoices &amp; billing</span><span class="soon">SOON</span></button>
         <button class="nav-link future-link" type="button" data-module="Materials &amp; Stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span><span class="soon">SOON</span></button>
@@ -83,7 +82,7 @@
           <article class="panel projects-panel">
             <div class="panel-heading">
               <div><h2>Project overview</h2><p>Your active projects at a glance</p></div>
-              <button class="text-button" type="button" data-module="Projects">View all <span>→</span></button>
+              <a class="text-button project-link" href="/projects">Manage projects <span>→</span></a>
             </div>
             <div class="project-list" id="projects"><div class="loading-row">Loading projects…</div></div>
           </article>

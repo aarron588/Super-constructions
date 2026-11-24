@@ -1,0 +1,38 @@
+[
+  {
+    "id": "PRJ-001",
+    "name": "Sharma Residence",
+    "location": "Whitefield, Bengaluru",
+    "start_date": "2026-02-01",
+    "expected_completion_date": "2026-12-30",
+    "budget": 8000000,
+    "contract_amount": 7200000,
+    "status": "In progress",
+    "progress": 72,
+    "supervisor": "Anil Kumar"
+  },
+  {
+    "id": "PRJ-002",
+    "name": "Lakeview Apartments",
+    "location": "Sarjapur Road, Bengaluru",
+    "start_date": "2026-05-01",
+    "expected_completion_date": "2027-03-31",
+    "budget": 12500000,
+    "contract_amount": 14200000,
+    "status": "In progress",
+    "progress": 48,
+    "supervisor": "Suresh Patel"
+  },
+  {
+    "id": "PRJ-003",
+    "name": "Mehta Commercial Complex",
+    "location": "Mysuru, Karnataka",
+    "start_date": "2026-07-15",
+    "expected_completion_date": "2027-08-31",
+    "budget": 18500000,
+    "contract_amount": 21000000,
+    "status": "On hold",
+    "progress": 31,
+    "supervisor": "Ravi Shetty"
+  }
+]
