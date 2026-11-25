@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Payments | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/payments.js?v=20261125-2200" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/></svg></span><span class="brand-name">SUPER<span>CONSTRUCTION</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><span>▦</span><span>Dashboard</span></a><div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><span>⌂</span><span>Projects</span></a><a class="nav-link" href="/billing"><span>▤</span><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><span>▦</span><span>Materials &amp; stock</span></a><a class="nav-link" href="/expenses"><span>₹</span><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a><a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a><a class="nav-link active" href="/payments" aria-current="page"><span>⇄</span><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><span>▥</span><span>Reports &amp; analytics</span></a>
+      </nav><div class="sidebar-bottom"><button class="nav-link future-link" type="button" data-module="Settings"><span>⚙</span><span>Settings</span><span class="soon">SOON</span></button><div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs">Workspace <span>/</span> <strong>Payments</strong></div><div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><div class="top-avatar">AD</div></div></header>
+      <div class="page-content">
+        <section class="welcome-row customer-heading"><div><p class="eyebrow">CASH FLOW</p><h1>Payments</h1><p class="welcome-subtitle">Record customer receipts, supplier payments, payroll, and other cash movements.</p></div><button class="primary-button" id="add-payment" type="button"><span>＋</span> Record payment</button></section>
+        <section class="module-summary" aria-label="Payment overview">
+          <article><span>Incoming</span><strong id="payments-incoming">₹0</strong><small>Recorded receipts</small></article>
+          <article><span>Outgoing</span><strong id="payments-outgoing">₹0</strong><small>Recorded payments</small></article>
+          <article><span>Customer balance</span><strong id="payments-invoice-due">₹0</strong><small>Unpaid invoices</small></article>
+          <article><span>Supplier balance</span><strong id="payments-supplier-due">₹0</strong><small>Unpaid supplier bills</small></article>
+        </section>
+        <section class="panel customer-panel">
+          <div class="customer-toolbar payment-toolbar"><label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="payment-search" type="search" placeholder="Search party, reference or project"></label><div class="payment-filters"><select id="payment-direction-filter" aria-label="Filter direction"><option value="All">All flows</option><option>Incoming</option><option>Outgoing</option></select><select id="payment-kind-filter" aria-label="Filter payment type"><option value="All">All types</option><option>Invoice</option><option>Supplier</option><option>Salary</option><option>Other</option></select></div></div>
+          <div class="customer-table-wrap"><table class="customer-table payment-table"><thead><tr><th>Date</th><th>Flow</th><th>Type</th><th>Party</th><th>Reference</th><th>Project</th><th>Method</th><th>Amount</th></tr></thead><tbody id="payment-rows"><tr><td colspan="8" class="table-loading">Loading payments…</td></tr></tbody></table></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="payment-editor-modal" aria-hidden="true"><div class="modal payment-editor" role="dialog" aria-modal="true" aria-labelledby="payment-editor-title">
+    <div class="modal-heading"><div><p class="eyebrow">PAYMENT TRANSACTION</p><h2 id="payment-editor-title">Record payment</h2></div><button class="modal-close" id="payment-editor-close" type="button" aria-label="Close">×</button></div>
+    <form id="payment-editor-form"><div class="form-grid">
+      <label>Payment type *<select id="payment-kind"><option>Invoice</option><option>Supplier</option><option>Salary</option><option>Other</option></select></label><label>Date *<input id="payment-date" type="date" required></label>
+      <label id="payment-invoice-field" class="form-full payment-field">Invoice *<select id="payment-invoice"></select></label>
+      <label id="payment-supplier-field" class="form-full payment-field" hidden>Supplier bill *<select id="payment-bill"></select></label>
+      <label id="payment-payroll-month-field" class="payment-field" hidden>Payroll month *<input id="payment-payroll-month" type="month"></label>
+      <label id="payment-employee-field" class="form-full payment-field" hidden>Employee and payroll month *<select id="payment-employee"></select></label>
+      <label id="payment-other-direction-field" class="payment-field" hidden>Direction<select id="payment-other-direction"><option>Outgoing</option><option>Incoming</option></select></label>
+      <label id="payment-other-party-field" class="payment-field" hidden>Paid by / paid to *<input id="payment-party" maxlength="120"></label>
+      <label id="payment-other-category-field" class="payment-field" hidden>Category *<input id="payment-category" maxlength="80" placeholder="Advance, travel, refund"></label>
+      <label id="payment-project-field" class="payment-field" hidden>Project (optional)<select id="payment-project"><option value="">General / not assigned</option></select></label>
+      <label>Amount (₹) *<input id="payment-amount" type="number" min="0.01" step="0.01" required></label><label>Method *<select id="payment-method"><option>Cash</option><option>UPI</option><option>Bank transfer</option><option>Other</option></select></label>
+      <label id="payment-reference-field" class="form-full payment-field" hidden>Reference<input id="payment-reference" maxlength="80"></label>
+      <label id="payment-notes-field" class="form-full payment-field" hidden>Notes<textarea id="payment-notes" rows="2" maxlength="500"></textarea></label>
+    </div><p class="payment-balance-hint" id="payment-balance-hint"></p><p class="form-error" id="payment-editor-error" role="alert"></p><div class="modal-actions"><button class="secondary-button" id="payment-editor-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save payment</button></div></form>
+  </div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

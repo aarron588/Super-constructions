@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Materials &amp; Stock | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/materials.js?v=20261125-2036" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/><path d="M11 13h10M16 9v8"/></svg></span>
+        <span class="brand-name">SUPER<span>CONSTRUCTION</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg><span>Dashboard</span></a>
+        <div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span></a>
+        <a class="nav-link" href="/billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates &amp; billing</span></a>
+        <a class="nav-link active" href="/materials" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span></a>
+        <a class="nav-link" href="/expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18m-13 5h4"/></svg><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a>
+        <a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a>
+        <a class="nav-link" href="/payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"/></svg><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17"/><path d="m7 15 4-5 3 2 5-7"/></svg><span>Reports &amp; analytics</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link future-link" type="button" data-module="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/></svg><span>Settings</span><span class="soon">SOON</span></button>
+        <div class="help-card"><div class="help-icon">?</div><div><strong>Need a hand?</strong><span>We're here to help you.</span></div><a href="mailto:support@superconstruction.example">→</a></div>
+        <div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div><button class="profile-menu" aria-label="Account options" type="button">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumbs">Workspace <span>/</span> <strong>Materials &amp; stock</strong></div>
+        <div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><button class="icon-button notification-button" aria-label="Notifications" type="button"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><div class="top-avatar">AD</div></div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row customer-heading">
+          <div><p class="eyebrow">INVENTORY CONTROL</p><h1>Materials &amp; stock</h1><p class="welcome-subtitle">Track material availability, purchases, project usage, and low-stock alerts.</p></div>
+          <button class="primary-button" id="add-material" type="button"><span>＋</span> Add material</button>
+        </section>
+
+        <section class="material-summary" aria-label="Inventory overview">
+          <article><span>Materials</span><strong id="material-count">0</strong><small>In the catalogue</small></article>
+          <article><span>Stock value</span><strong id="material-stock-value">₹0</strong><small>Available quantity × average cost</small></article>
+          <article><span>Low / out of stock</span><strong id="material-low-count">0</strong><small>At or below minimum level</small></article>
+          <article><span>Stock movements</span><strong id="material-movement-count">0</strong><small>Recorded stock in and out</small></article>
+        </section>
+
+        <section class="panel customer-panel">
+          <div class="customer-toolbar material-toolbar">
+            <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="material-search" type="search" placeholder="Search material or supplier"></label>
+            <div class="material-filters">
+              <select id="material-category-filter" aria-label="Filter by material category"><option value="All">All categories</option><option>Cement</option><option>Steel</option><option>Sand</option><option>Bricks</option><option>Gravel</option><option>Paint</option><option>Tiles</option><option>Other</option></select>
+              <select id="material-stock-filter" aria-label="Filter by stock level"><option value="All">All stock levels</option><option>In stock</option><option>Low stock</option><option>Out of stock</option></select>
+            </div>
+          </div>
+          <div class="customer-table-wrap">
+            <table class="customer-table material-table">
+              <thead><tr><th>Material</th><th>Category</th><th>Available</th><th>Avg. unit cost</th><th>Supplier</th><th>Minimum</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead>
+              <tbody id="material-rows"><tr><td colspan="8" class="table-loading">Loading materials…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="material-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="material-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">MATERIAL DETAILS</p><h2 id="material-modal-title">Add material</h2></div><button class="modal-close" id="material-modal-close" type="button" aria-label="Close">×</button></div>
+      <form id="material-form">
+        <input type="hidden" id="material-id">
+        <div class="form-grid">
+          <label>Material name *<input id="material-name" required maxlength="120" placeholder="e.g. Portland cement"></label>
+          <label>Category *<select id="material-category" required><option>Cement</option><option>Steel</option><option>Sand</option><option>Bricks</option><option>Gravel</option><option>Paint</option><option>Tiles</option><option>Other</option></select></label>
+          <label>Unit *<input id="material-unit" required maxlength="24" placeholder="bag, kg, piece, m³"></label>
+          <label>Average purchase price (₹) *<input id="material-price" type="number" min="0" step="0.01" value="0" required></label>
+          <label>Supplier name<input id="material-supplier" maxlength="120" placeholder="Supplier or vendor"></label>
+          <label>Minimum stock alert *<input id="material-minimum" type="number" min="0" step="0.001" value="0" required></label>
+        </div>
+        <p class="form-error" id="material-form-error" role="alert"></p>
+        <div class="modal-actions"><button class="secondary-button" id="material-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save material</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="movement-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="movement-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">INVENTORY MOVEMENT</p><h2 id="movement-modal-title">Record stock</h2></div><button class="modal-close" id="movement-modal-close" type="button" aria-label="Close">×</button></div>
+      <form id="movement-form">
+        <input type="hidden" id="movement-material-id">
+        <div class="movement-material-summary"><span id="movement-material-name"></span><strong>Available now <b id="movement-available"></b></strong></div>
+        <div class="form-grid">
+          <label>Movement type *<select id="movement-type"><option>Stock in</option><option>Stock out</option></select></label>
+          <label>Quantity *<input id="movement-quantity" type="number" min="0.001" step="0.001" required></label>
+          <label>Date *<input id="movement-date" type="date" required></label>
+          <label id="movement-price-field" class="movement-field">Unit purchase price (₹)<input id="movement-price" type="number" min="0" step="0.01" required></label>
+          <label id="movement-supplier-field" class="movement-field">Supplier<input id="movement-supplier" maxlength="120" placeholder="Supplier name"></label>
+          <label id="movement-project-field" class="movement-field" hidden>Project (optional)<select id="movement-project"><option value="">General / not assigned</option></select></label>
+          <label class="form-full">Note<textarea id="movement-note" rows="2" maxlength="500" placeholder="Purchase reference or usage details"></textarea></label>
+        </div>
+        <p class="form-error" id="movement-form-error" role="alert"></p>
+        <div class="modal-actions"><button class="secondary-button" id="movement-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save movement</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="history-modal" aria-hidden="true">
+    <div class="modal movement-history-modal" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">STOCK LEDGER</p><h2 id="history-modal-title">Movement history</h2></div><button class="modal-close" id="history-modal-close" type="button" aria-label="Close">×</button></div>
+      <div class="customer-table-wrap">
+        <table class="customer-table history-table">
+          <thead><tr><th>Date</th><th>Movement</th><th>Quantity</th><th>Supplier / project</th><th>Unit cost</th><th>Note</th></tr></thead>
+          <tbody id="movement-history-rows"></tbody>
+        </table>
+      </div>
+      <div class="modal-actions"><button class="secondary-button" id="history-close" type="button">Close</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

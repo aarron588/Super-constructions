@@ -25,12 +25,14 @@
         </a>
         <div class="nav-section-label">MANAGEMENT</div>
         <a class="nav-link" href="/projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span></a>
-        <button class="nav-link future-link" type="button" data-module="Estimates &amp; Quotations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates</span><span class="soon">SOON</span></button>
-        <button class="nav-link future-link" type="button" data-module="Invoices &amp; Billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6m-6 4h6m-6 4h3"/></svg><span>Invoices &amp; billing</span><span class="soon">SOON</span></button>
-        <button class="nav-link future-link" type="button" data-module="Materials &amp; Stock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span><span class="soon">SOON</span></button>
-        <button class="nav-link future-link" type="button" data-module="Expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18m-13 5h4"/></svg><span>Expenses</span><span class="soon">SOON</span></button>
-        <button class="nav-link future-link" type="button" data-module="Payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"/><path d="M7 7V5a2 2 0 0 1 2-2h10"/></svg><span>Payments</span><span class="soon">SOON</span></button>
-        <button class="nav-link future-link" type="button" data-module="Reports &amp; Analytics"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17"/><path d="m7 15 4-5 3 2 5-7"/></svg><span>Reports &amp; analytics</span><span class="soon">SOON</span></button>
+        <a class="nav-link" href="/billing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span></a>
+        <a class="nav-link" href="/expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18m-13 5h4"/></svg><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a>
+        <a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a>
+        <a class="nav-link" href="/payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"/></svg><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17"/><path d="m7 15 4-5 3 2 5-7"/></svg><span>Reports &amp; analytics</span></a>
       </nav>
       <div class="sidebar-bottom">
         <button class="nav-link future-link" type="button" data-module="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.6.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.6-.9l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.9l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.6-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.6.9l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1-.1 1.8Z"/></svg><span>Settings</span><span class="soon">SOON</span></button>
@@ -64,14 +66,11 @@
       <div class="page-content">
         <section class="welcome-row">
           <div>
-            <p class="eyebrow">MONDAY, 23 NOVEMBER 2026</p>
+            <p class="eyebrow" id="dashboard-date">BUSINESS OVERVIEW</p>
             <h1>Good morning, Admin <span aria-hidden="true">✦</span></h1>
             <p class="welcome-subtitle">Here's what's happening across your business today.</p>
           </div>
-          <button class="date-filter" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-            This month <span class="chevron">⌄</span>
-          </button>
+          <button class="secondary-button dashboard-refresh" id="dashboard-refresh" type="button"><span aria-hidden="true">↻</span> Refresh data</button>
         </section>
 
         <section class="metrics-grid" id="metrics" aria-label="Business overview">
@@ -89,7 +88,7 @@
           <article class="panel activity-panel">
             <div class="panel-heading">
               <div><h2>Recent activity</h2><p>Latest updates from your business</p></div>
-              <button class="more-button" aria-label="More activity options" type="button">···</button>
+              <span class="live-indicator"><i></i> Live data</span>
             </div>
             <div class="activity-list" id="activities"><div class="loading-row">Loading activity…</div></div>
           </article>

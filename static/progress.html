@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Project Progress | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/progress.js?v=20261125-2200" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/></svg></span><span class="brand-name">SUPER<span>CONSTRUCTION</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><span>▦</span><span>Dashboard</span></a><div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><span>⌂</span><span>Projects</span></a><a class="nav-link" href="/billing"><span>▤</span><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><span>▦</span><span>Materials &amp; stock</span></a><a class="nav-link" href="/expenses"><span>₹</span><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a><a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link active" href="/progress" aria-current="page"><span>◷</span><span>Project progress</span></a><a class="nav-link" href="/payments"><span>⇄</span><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><span>▥</span><span>Reports &amp; analytics</span></a>
+      </nav><div class="sidebar-bottom"><button class="nav-link future-link" type="button" data-module="Settings"><span>⚙</span><span>Settings</span><span class="soon">SOON</span></button><div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs">Workspace <span>/</span> <strong>Project progress</strong></div><div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><div class="top-avatar">AD</div></div></header>
+      <div class="page-content">
+        <section class="welcome-row customer-heading"><div><p class="eyebrow">SITE UPDATES</p><h1>Project progress</h1><p class="welcome-subtitle">Track daily work updates, completed tasks, and project timelines.</p></div><button class="primary-button" id="add-progress" type="button"><span>＋</span> Add work update</button></section>
+        <section class="module-summary" aria-label="Project progress overview">
+          <article><span>Projects tracked</span><strong id="progress-project-count">0</strong><small>Active project register</small></article>
+          <article><span>Average progress</span><strong id="progress-average">0%</strong><small>Across all projects</small></article>
+          <article><span>Updates this month</span><strong id="progress-month-updates">0</strong><small>Daily site records</small></article>
+          <article><span>Delayed projects</span><strong id="progress-delayed-count">0</strong><small>Past expected completion</small></article>
+        </section>
+        <section class="project-progress-grid" id="project-progress-cards" aria-label="Project progress cards"><div class="loading-card">Loading project progress…</div></section>
+        <section class="panel project-expenses-panel"><div class="panel-heading"><div><h2>Daily work updates</h2><p>Latest activity and task tracking from each site</p></div><select id="progress-project-filter" aria-label="Filter by project"><option value="All">All projects</option></select></div>
+          <div class="customer-table-wrap"><table class="customer-table progress-table"><thead><tr><th>Date</th><th>Project</th><th>Progress</th><th>Work update</th><th>Completed tasks</th><th>Pending tasks</th></tr></thead><tbody id="progress-rows"><tr><td colspan="6" class="table-loading">Loading work updates…</td></tr></tbody></table></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="progress-modal" aria-hidden="true"><div class="modal progress-editor" role="dialog" aria-modal="true" aria-labelledby="progress-modal-title">
+    <div class="modal-heading"><div><p class="eyebrow">DAILY SITE LOG</p><h2 id="progress-modal-title">Add work update</h2></div><button class="modal-close" id="progress-modal-close" type="button" aria-label="Close">×</button></div>
+    <form id="progress-form"><div class="form-grid">
+      <label>Project *<select id="progress-project" required><option value="">Select a project</option></select></label><label>Date *<input id="progress-date" type="date" required></label>
+      <label>Completion (%) *<input id="progress-percent" type="number" min="0" max="100" step="1" required></label><label class="form-full">Work update *<input id="progress-summary" required maxlength="300" placeholder="What happened at the site today?"></label>
+      <label>Completed tasks<textarea id="progress-completed" rows="4" placeholder="One task per line"></textarea></label><label>Pending tasks<textarea id="progress-pending" rows="4" placeholder="One task per line"></textarea></label>
+      <label class="form-full">Additional notes<textarea id="progress-notes" maxlength="500" rows="2"></textarea></label>
+    </div><p class="form-error" id="progress-form-error" role="alert"></p><div class="modal-actions"><button class="secondary-button" id="progress-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save update</button></div></form>
+  </div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

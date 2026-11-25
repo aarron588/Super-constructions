@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Estimates &amp; Billing | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/estimates.js?v=20261125-2024" defer></script>
+  <script src="/invoices.js?v=20261125-2010" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/><path d="M11 13h10M16 9v8"/></svg></span>
+        <span class="brand-name">SUPER<span>CONSTRUCTION</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg><span>Dashboard</span></a>
+        <div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12h-6v-7H9v7H3Z"/><path d="M3 9h18M7 9v4m10-4v4"/></svg><span>Projects</span></a>
+        <a class="nav-link active" href="/billing" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 13h6m-6 4h6"/></svg><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg><span>Materials &amp; stock</span></a>
+        <a class="nav-link" href="/expenses"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18m-13 5h4"/></svg><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a>
+        <a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a>
+        <a class="nav-link" href="/payments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18"/></svg><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4m0 16h17m-14-5 4-5 3-2 5-7"/></svg><span>Reports &amp; analytics</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link future-link" type="button" data-module="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/></svg><span>Settings</span><span class="soon">SOON</span></button>
+        <div class="help-card"><div class="help-icon">?</div><div><strong>Need a hand?</strong><span>We're here to help you.</span></div><a href="mailto:support@superconstruction.example">→</a></div>
+        <div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div><button class="profile-menu" aria-label="Account options" type="button">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumbs">Workspace <span>/</span> <strong>Estimates &amp; billing</strong></div>
+        <div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><button class="icon-button notification-button" aria-label="Notifications" type="button"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><div class="top-avatar">AD</div></div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row customer-heading">
+          <div><p class="eyebrow">ESTIMATES, INVOICES &amp; COLLECTIONS</p><h1>Estimates &amp; billing</h1><p class="welcome-subtitle">Create quotations, convert accepted estimates into invoices, and track payments in one place.</p></div>
+          <button class="primary-button" id="add-estimate" type="button"><span>＋</span> New estimate</button>
+        </section>
+
+        <nav class="billing-tabs" role="tablist" aria-label="Estimates and billing">
+          <button class="billing-tab active" id="estimates-tab" type="button" role="tab" aria-selected="true" aria-controls="estimate-panel" data-billing-tab="estimates">Estimates &amp; quotations</button>
+          <button class="billing-tab" id="invoices-tab" type="button" role="tab" aria-selected="false" aria-controls="invoice-panel" data-billing-tab="invoices">Invoices &amp; billing</button>
+        </nav>
+
+        <section class="billing-panel" id="estimate-panel" role="tabpanel" aria-labelledby="estimates-tab">
+        <section class="project-summary" aria-label="Estimate overview">
+          <article><span>Total estimates</span><strong id="total-estimates">0</strong></article>
+          <article><span>Draft</span><strong id="draft-estimates">0</strong></article>
+          <article><span>Sent</span><strong id="sent-estimates">0</strong></article>
+          <article><span>Accepted</span><strong id="accepted-estimates">0</strong></article>
+        </section>
+
+        <section class="panel customer-panel">
+          <div class="customer-toolbar">
+            <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="estimate-search" type="search" placeholder="Search estimate or project"></label>
+            <select id="estimate-status-filter" aria-label="Filter estimates"><option value="All">All statuses</option><option>Draft</option><option>Sent</option><option>Accepted</option><option>Rejected</option></select>
+          </div>
+          <div class="customer-table-wrap">
+            <table class="customer-table estimate-table">
+              <thead><tr><th>Estimate</th><th>Project</th><th>Valid until</th><th>Items</th><th>Total</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead>
+              <tbody id="estimate-rows"><tr><td colspan="7" class="table-loading">Loading estimates…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+        </section>
+
+        <section class="billing-panel" id="invoice-panel" role="tabpanel" aria-labelledby="invoices-tab" hidden>
+          <section class="invoice-summary" aria-label="Invoice overview">
+            <article><span>Total invoiced</span><strong id="invoice-total-value">₹0</strong><small id="invoice-count">0 invoices</small></article>
+            <article><span>Collected</span><strong id="invoice-paid-value">₹0</strong><small>Payments recorded</small></article>
+            <article><span>Outstanding</span><strong id="invoice-balance-value">₹0</strong><small>Remaining balance</small></article>
+            <article><span>Overdue</span><strong id="invoice-overdue-value">0</strong><small>Past due date</small></article>
+          </section>
+
+          <section class="panel customer-panel">
+            <div class="customer-toolbar">
+              <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="invoice-search" type="search" placeholder="Search invoice or project"></label>
+              <select id="invoice-status-filter" aria-label="Filter invoices"><option value="All">All statuses</option><option>Unpaid</option><option>Partially paid</option><option>Paid</option><option>Overdue</option></select>
+            </div>
+            <div class="customer-table-wrap">
+              <table class="customer-table invoice-table">
+                <thead><tr><th>Invoice</th><th>Project</th><th>Issued</th><th>Due</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead>
+                <tbody id="invoice-rows"><tr><td colspan="9" class="table-loading">Loading invoices…</td></tr></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="estimate-modal" aria-hidden="true">
+    <div class="modal estimate-editor" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">ESTIMATE DETAILS</p><h2 id="estimate-modal-title">New estimate</h2></div><button class="modal-close" id="estimate-modal-close" type="button" aria-label="Close">×</button></div>
+      <form id="estimate-form">
+        <input type="hidden" id="estimate-id">
+        <div class="form-grid">
+          <label>Project *<select id="estimate-project" required><option value="">Select a project</option></select></label>
+          <label>Valid until *<input id="estimate-valid-until" type="date" required></label>
+          <label>Status<select id="estimate-status"><option>Draft</option><option>Sent</option><option>Accepted</option><option>Rejected</option></select></label>
+        </div>
+        <div class="estimate-items-heading"><div><strong>Estimate items</strong><span>Materials, labour, equipment, transport and other charges</span></div><button class="secondary-button" id="add-estimate-item" type="button">＋ Add item</button></div>
+        <div class="estimate-items-wrap">
+          <table class="estimate-items-table">
+            <thead><tr><th>Description</th><th>Category</th><th>Qty</th><th>Unit</th><th>Rate (₹)</th><th>Amount</th><th><span class="sr-only">Remove</span></th></tr></thead>
+            <tbody id="estimate-item-rows"></tbody>
+          </table>
+        </div>
+        <div class="estimate-bottom-grid">
+          <label>Notes<textarea id="estimate-notes" rows="3" placeholder="Terms, scope notes or exclusions"></textarea></label>
+          <div class="estimate-calculator">
+            <label>Discount (%)<input id="estimate-discount" type="number" min="0" max="100" step="0.01" value="0"></label>
+            <label>GST (%)<input id="estimate-gst" type="number" min="0" max="100" step="0.01" value="18"></label>
+            <div class="estimate-total-line"><span>Subtotal</span><strong id="estimate-subtotal">₹0</strong></div>
+            <div class="estimate-total-line"><span>Discount</span><strong id="estimate-discount-amount">− ₹0</strong></div>
+            <div class="estimate-total-line"><span>GST</span><strong id="estimate-gst-amount">₹0</strong></div>
+            <div class="estimate-total-line grand-total"><span>Estimated total</span><strong id="estimate-total">₹0</strong></div>
+            <button class="secondary-button calculate-estimate-button" id="calculate-estimate" type="button">Calculate estimate</button>
+          </div>
+        </div>
+        <p class="form-error" id="estimate-form-error" role="alert"></p>
+        <div class="modal-actions"><button class="secondary-button" id="estimate-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save estimate</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="estimate-print-modal" aria-hidden="true">
+    <div class="modal estimate-print-modal" role="dialog" aria-modal="true" aria-labelledby="estimate-print-title">
+      <div class="estimate-print-actions"><button class="secondary-button" id="estimate-print-close" type="button">Close</button><button class="primary-button" id="estimate-print-button" type="button">Print / Save PDF</button></div>
+      <article id="estimate-print-content" class="estimate-print-content"></article>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="payment-modal" aria-hidden="true">
+    <div class="modal payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title">
+      <div class="modal-heading"><div><p class="eyebrow">PAYMENT RECEIPT</p><h2 id="payment-modal-title">Record payment</h2></div><button class="modal-close" id="payment-modal-close" type="button" aria-label="Close">×</button></div>
+      <form id="payment-form">
+        <input type="hidden" id="payment-invoice-id">
+        <div class="payment-invoice-summary"><span id="payment-invoice-project"></span><strong>Remaining balance <b id="payment-invoice-balance"></b></strong></div>
+        <div class="form-grid">
+          <label>Amount received (₹) *<input id="payment-amount" type="number" min="0.01" step="0.01" required></label>
+          <label>Payment method<select id="payment-method" required><option>Cash</option><option>UPI</option><option>Bank transfer</option><option>Other</option></select></label>
+          <label>Payment date<input id="payment-date" type="date" required></label>
+        </div>
+        <p class="form-error" id="payment-form-error" role="alert"></p>
+        <div class="modal-actions"><button class="secondary-button" id="payment-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save payment</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="invoice-print-modal" aria-hidden="true">
+    <div class="modal invoice-print-modal" role="dialog" aria-modal="true" aria-labelledby="invoice-print-title">
+      <div class="invoice-print-actions"><button class="secondary-button" id="invoice-print-close" type="button">Close</button><button class="primary-button" id="invoice-print-button" type="button">Print / Save PDF</button></div>
+      <article id="invoice-print-content" class="estimate-print-content"></article>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

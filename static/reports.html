@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Reports &amp; Analytics | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/reports.js?v=20261125-2200" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/></svg></span><span class="brand-name">SUPER<span>CONSTRUCTION</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><span>▦</span><span>Dashboard</span></a><div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><span>⌂</span><span>Projects</span></a><a class="nav-link" href="/billing"><span>▤</span><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><span>▦</span><span>Materials &amp; stock</span></a><a class="nav-link" href="/expenses"><span>₹</span><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a><a class="nav-link" href="/employees"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a><a class="nav-link" href="/payments"><span>⇄</span><span>Payments</span></a>
+        <a class="nav-link active" href="/reports" aria-current="page"><span>▥</span><span>Reports &amp; analytics</span></a>
+      </nav><div class="sidebar-bottom"><button class="nav-link future-link" type="button" data-module="Settings"><span>⚙</span><span>Settings</span><span class="soon">SOON</span></button><div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs">Workspace <span>/</span> <strong>Reports &amp; analytics</strong></div><div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><div class="top-avatar">AD</div></div></header>
+      <div class="page-content">
+        <section class="welcome-row customer-heading"><div><p class="eyebrow">BUSINESS PERFORMANCE</p><h1>Reports &amp; analytics</h1><p class="welcome-subtitle">Review revenue, costs, project profit, payroll, GST, and outstanding balances.</p></div><label class="report-month-label">Report month<input id="report-month" type="month"></label></section>
+        <section class="module-summary reports-summary" aria-label="Monthly financial overview">
+          <article><span>Invoiced revenue</span><strong id="report-revenue">₹0</strong><small>Invoices issued this month</small></article>
+          <article><span>Payments collected</span><strong id="report-collected">₹0</strong><small>Receipts recorded this month</small></article>
+          <article><span>Expenses</span><strong id="report-expenses">₹0</strong><small>Business costs recorded</small></article>
+          <article><span>Supplier purchases</span><strong id="report-purchases">₹0</strong><small>Supplier bills issued</small></article>
+          <article><span>Materials used</span><strong id="report-material-usage">₹0</strong><small>Stock issued to projects</small></article>
+          <article><span>Payroll earned</span><strong id="report-payroll">₹0</strong><small>Based on attendance</small></article>
+          <article><span>GST on invoices</span><strong id="report-gst">₹0</strong><small>Tax on invoices issued</small></article>
+          <article><span>Outstanding</span><strong id="report-outstanding">₹0</strong><small>Invoices, bills, and payroll due</small></article>
+        </section>
+        <p class="report-accounting-note">Supplier bills and material stock-in purchases are reported separately. Record each purchase in only one path to avoid counting the same cost twice.</p>
+        <section class="panel project-expenses-panel"><div class="panel-heading"><div><h2>Project profit &amp; loss</h2><p>Lifetime invoice revenue less recorded project costs</p></div></div><div class="customer-table-wrap"><table class="customer-table report-wide-table"><thead><tr><th>Project</th><th>Revenue</th><th>Expenses</th><th>Supplier bills</th><th>Materials used</th><th>Payroll</th><th>Profit / loss</th></tr></thead><tbody id="report-project-rows"><tr><td colspan="7" class="table-loading">Loading project results…</td></tr></tbody></table></div></section>
+        <div class="report-grid">
+          <section class="panel report-panel"><div class="panel-heading"><div><h2>Expenses by category</h2><p>Recorded expenses for the selected month</p></div></div><div class="customer-table-wrap"><table class="customer-table"><thead><tr><th>Category</th><th>Amount</th></tr></thead><tbody id="report-expense-rows"></tbody></table></div></section>
+          <section class="panel report-panel"><div class="panel-heading"><div><h2>Material purchases</h2><p>Stock-in value for the selected month</p></div></div><div class="customer-table-wrap"><table class="customer-table"><thead><tr><th>Material</th><th>Purchase value</th></tr></thead><tbody id="report-material-rows"></tbody></table></div></section>
+          <section class="panel report-panel"><div class="panel-heading"><div><h2>Employee salary report</h2><p>Earned wages, payments, and balances</p></div></div><div class="customer-table-wrap"><table class="customer-table"><thead><tr><th>Employee</th><th>Days</th><th>Earned</th><th>Paid</th><th>Due</th></tr></thead><tbody id="report-payroll-rows"></tbody></table></div></section>
+          <section class="panel report-panel"><div class="panel-heading"><div><h2>Payment report</h2><p>Transactions recorded for the selected month</p></div></div><div class="customer-table-wrap"><table class="customer-table"><thead><tr><th>Date</th><th>Direction</th><th>Party</th><th>Type</th><th>Amount</th></tr></thead><tbody id="report-payment-rows"></tbody></table></div></section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

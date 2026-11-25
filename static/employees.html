@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Labour &amp; Employees | Super Construction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/employees.js?v=20261125-2200" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Super Construction dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 26V13l11-8 11 8v13h-7v-8h-8v8H5Z"/></svg></span><span class="brand-name">SUPER<span>CONSTRUCTION</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="/"><span>▦</span><span>Dashboard</span></a><div class="nav-section-label">MANAGEMENT</div>
+        <a class="nav-link" href="/projects"><span>⌂</span><span>Projects</span></a><a class="nav-link" href="/billing"><span>▤</span><span>Estimates &amp; billing</span></a>
+        <a class="nav-link" href="/materials"><span>▦</span><span>Materials &amp; stock</span></a><a class="nav-link" href="/expenses"><span>₹</span><span>Expenses</span></a>
+        <a class="nav-link" href="/suppliers"><span>▣</span><span>Suppliers</span></a><a class="nav-link active" href="/employees" aria-current="page"><span>♙</span><span>Labour &amp; employees</span></a>
+        <a class="nav-link" href="/progress"><span>◷</span><span>Project progress</span></a><a class="nav-link" href="/payments"><span>⇄</span><span>Payments</span></a>
+        <a class="nav-link" href="/reports"><span>▥</span><span>Reports &amp; analytics</span></a>
+      </nav><div class="sidebar-bottom"><button class="nav-link future-link" type="button" data-module="Settings"><span>⚙</span><span>Settings</span><span class="soon">SOON</span></button><div class="profile"><div class="avatar">AD</div><div class="profile-copy"><strong>Admin</strong><span>Administrator</span></div></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button><div class="breadcrumbs">Workspace <span>/</span> <strong>Labour &amp; employees</strong></div><div class="topbar-actions"><div class="demo-badge"><span></span> LOCAL DATA</div><div class="top-avatar">AD</div></div></header>
+      <div class="page-content">
+        <section class="welcome-row customer-heading"><div><p class="eyebrow">PEOPLE &amp; PAYROLL</p><h1>Labour &amp; employees</h1><p class="welcome-subtitle">Manage workers, daily attendance, earned wages, and salary payments.</p></div><button class="primary-button" id="add-employee" type="button"><span>＋</span> Add employee</button></section>
+        <section class="module-summary" aria-label="Employee overview">
+          <article><span>Active employees</span><strong id="employee-active-count">0</strong><small>In the workforce</small></article>
+          <article><span>Present today</span><strong id="employee-present-count">0</strong><small>Including half days</small></article>
+          <article><span>Payroll earned</span><strong id="payroll-earned">₹0</strong><small id="payroll-month-label">This month</small></article>
+          <article><span>Salary due</span><strong id="payroll-due">₹0</strong><small>Earned, not yet paid</small></article>
+        </section>
+        <section class="panel customer-panel">
+          <div class="panel-heading employee-panel-heading"><div><h2>Team members</h2><p>Use “Mark attendance” to record a worker’s daily status.</p></div><div class="customer-toolbar employee-toolbar"><label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input id="employee-search" type="search" placeholder="Search name, role or phone"></label><select id="employee-status-filter" aria-label="Filter employees"><option value="All">All employees</option><option>Active</option><option>Inactive</option></select></div></div>
+          <div class="customer-table-wrap"><table class="customer-table employee-table"><thead><tr><th>Employee</th><th>Role</th><th>Daily wage</th><th>Days this month</th><th>Earned</th><th>Paid</th><th>Due</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="employee-rows"><tr><td colspan="9" class="table-loading">Loading employees…</td></tr></tbody></table></div>
+        </section>
+        <section class="panel project-expenses-panel"><div class="panel-heading"><div><h2>Attendance history</h2><p>Recent daily records. Attendance is counted toward wages using the wage saved on that day.</p></div></div>
+          <div class="customer-table-wrap"><table class="customer-table attendance-table"><thead><tr><th>Date</th><th>Employee</th><th>Project</th><th>Attendance</th><th>Notes</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="attendance-rows"><tr><td colspan="6" class="table-loading">Loading attendance…</td></tr></tbody></table></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="employee-modal" aria-hidden="true"><div class="modal employee-editor" role="dialog" aria-modal="true" aria-labelledby="employee-modal-title">
+    <div class="modal-heading"><div><p class="eyebrow">EMPLOYEE DETAILS</p><h2 id="employee-modal-title">Add employee</h2></div><button class="modal-close" id="employee-modal-close" type="button" aria-label="Close">×</button></div>
+    <form id="employee-form"><input type="hidden" id="employee-id"><div class="form-grid">
+      <label>Name *<input id="employee-name" required maxlength="120"></label><label>Contact number<input id="employee-phone" maxlength="30"></label>
+      <label>Job role *<input id="employee-role" required maxlength="80" placeholder="Mason, electrician, supervisor"></label><label>Daily wage (₹) *<input id="employee-wage" type="number" min="0.01" step="0.01" required></label>
+      <label>Joining date *<input id="employee-joined" type="date" required></label><label>Status<select id="employee-status"><option>Active</option><option>Inactive</option></select></label>
+    </div><p class="form-error" id="employee-form-error" role="alert"></p><div class="modal-actions"><button class="secondary-button" id="employee-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save employee</button></div></form>
+  </div></div>
+  <div class="modal-backdrop" id="attendance-modal" aria-hidden="true"><div class="modal attendance-editor" role="dialog" aria-modal="true" aria-labelledby="attendance-modal-title">
+    <div class="modal-heading"><div><p class="eyebrow">DAILY ATTENDANCE</p><h2 id="attendance-modal-title">Record attendance</h2></div><button class="modal-close" id="attendance-modal-close" type="button" aria-label="Close">×</button></div>
+    <form id="attendance-form"><input type="hidden" id="attendance-employee-id"><input type="hidden" id="attendance-id"><div class="attendance-employee-summary" id="attendance-employee-name"></div><div class="form-grid">
+      <label>Date *<input id="attendance-date" type="date" required></label><label>Status *<select id="attendance-status"><option>Present</option><option>Half day</option><option>Absent</option></select><small class="field-help">Half day counts as 0.5 paid day; absent counts as 0.</small></label>
+      <label class="form-full">Project (optional)<select id="attendance-project"><option value="">General / not assigned</option></select></label>
+      <label class="form-full">Notes<textarea id="attendance-notes" maxlength="300" rows="2"></textarea></label>
+    </div><p class="form-error" id="attendance-form-error" role="alert"></p><div class="modal-actions"><button class="secondary-button" id="attendance-cancel" type="button">Cancel</button><button class="primary-button" type="submit">Save attendance</button></div></form>
+  </div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
